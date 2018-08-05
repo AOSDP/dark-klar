@@ -26,7 +26,18 @@
   <string name="shortcut_erase_short_label">Pichsuña</string>
   <string name="shortcut_erase_long_label">Thaqhañ imatanak pichsuña</string>
   <string name="text_selection_search_action">Jiwasak thaqhaña</string>
-  <string name="about_content"><![CDATA[<p xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%1$s puts you in control.</p>\n<p xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">"Use it as a private browser:\n  "<ul>"\n    "<li>Search and browse right in the app</li>"\n    "<li>Block trackers (or update settings to allow trackers)</li>"\n    "<li>Erase to delete cookies as well as search and browsing history</li>"\n  "</ul>\n</p>\n<p xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">%1$s is produced by Mozilla. Our mission is to foster a healthy, open Internet.<br/>\n<a href="%2$s">Learn more</a></p>]]></string>
+  <string name="about_content"><![CDATA[
+<p>%1$s puts you in control.</p>
+<p>Use it as a private browser:
+  <ul>
+    <li>Search and browse right in the app</li>
+    <li>Block trackers (or update settings to allow trackers)</li>
+    <li>Erase to delete cookies as well as search and browsing history</li>
+  </ul>
+</p>
+<p>%1$s is produced by the AOSDP team. Based on the browser Focus, by Mozila. Their mission is to foster a healthy, open Internet.<br/>
+<a href="%2$s">Learn more</a></p>
+    ]]></string>
   <string name="preference_privacy_and_security_header">Imantatäña ukatx jark\'atäña</string>
   <string name="preference_privacy_and_security_summary">Thaqhata, kukinaka, ukatx utjir ajllinaka</string>
   <string name="preference_search_summary">Pantjat imaña, justupach phuqhaña</string>
