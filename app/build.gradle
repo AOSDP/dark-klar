@@ -14,7 +14,7 @@ android {
     compileSdkVersion 27
     buildToolsVersion '27.0.3'
     defaultConfig {
-        applicationId "org.mozilla"
+        applicationId "com.aosdp"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 11 // This versionCode is "frozen" for local builds. For "release" builds we
@@ -507,7 +507,7 @@ def getEnabledLocales() {
     return langs.sort { it }
 }
 
-def generatedLocaleListDir = 'src/main/java/org/mozilla/focus/generated'
+def generatedLocaleListDir = 'src/main/java/com/aosdp/darkfocus/generated'
 def generatedLocaleListFilename = 'LocaleList.java'
 
 task generateLocaleList {
@@ -518,7 +518,7 @@ task generateLocaleList {
 
         localeList.delete()
         localeList.createNewFile()
-        localeList << "package org.mozilla.focus.generated;" << "\n" << "\n"
+        localeList << "package com.aosdp.darkfocus.generated;" << "\n" << "\n"
         localeList << "import java.util.Arrays;" << "\n"
         localeList << "import java.util.Collections;" << "\n"
         localeList << "import java.util.List;" << "\n"

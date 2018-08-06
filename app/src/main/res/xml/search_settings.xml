@@ -5,12 +5,12 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <org.mozilla.focus.search.SearchEnginePreference
+    <com.aosdp.darkfocus.search.SearchEnginePreference
         android:key="@string/pref_key_search_engine"
         android:layout="@layout/focus_preference"
         android:summary="@string/preference_search_engine_default" />
 
-    <org.mozilla.focus.autocomplete.AutocompletePreference
+    <com.aosdp.darkfocus.autocomplete.AutocompletePreference
         android:key="@string/pref_key_screen_autocomplete"
         android:layout="@layout/focus_preference"
         android:summary="WHAT?"

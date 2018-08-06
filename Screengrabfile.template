@@ -7,10 +7,10 @@
 # file and generate the final configuration that we use inside
 # a taskcluster task.
 
-use_tests_in_packages ['org.mozilla.focus.screenshots']
+use_tests_in_packages ['com.aosdp.darkfocus.screenshots']
 
-app_package_name 'org.mozilla.focus.debug'
-use_tests_in_packages ['org.mozilla.focus.activity']
+app_package_name 'com.aosdp.darkfocus.debug'
+use_tests_in_packages ['com.aosdp.darkfocus.activity']
 
 app_apk_path 'app/build/outputs/apk/app-focus-webview-debug.apk'
 tests_apk_path 'app/build/outputs/apk/app-focus-webview-debug-androidTest.apk'

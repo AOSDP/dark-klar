@@ -4,7 +4,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Empty default: we use an empty string to indicate "system default" language being selected -->
     <!--suppress AndroidDomInspection -->
-    <org.mozilla.focus.widget.LocaleListPreference
+    <com.aosdp.darkfocus.widget.LocaleListPreference
         android:defaultValue=""
         android:key="@string/pref_key_locale"
         android:layout="@layout/focus_preference"
@@ -22,12 +22,12 @@
         android:summary="@string/preference_search_summary"
         android:title="@string/preference_category_search" />
 
-    <org.mozilla.focus.widget.DefaultBrowserPreference
+    <com.aosdp.darkfocus.widget.DefaultBrowserPreference
         android:key="@string/pref_key_default_browser"
         android:layout="@layout/focus_preference"
         android:title="@string/preference_default_browser2" />
 
-    <org.mozilla.focus.widget.MozillaPreference
+    <com.aosdp.darkfocus.widget.MozillaPreference
         android:key="@string/pref_key_mozilla_screen"
         android:layout="@layout/focus_preference"
         android:summary="@string/preference_mozilla_summary"

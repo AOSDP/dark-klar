@@ -19,7 +19,7 @@
             android:layout_height="0dp"
             android:background="@drawable/animated_background" />
 
-        <org.mozilla.focus.widget.ResizableKeyboardCoordinatorLayout
+        <com.aosdp.darkfocus.widget.ResizableKeyboardCoordinatorLayout
             app:viewToHideWhenActivated="@+id/erase"
             android:layout_marginTop="0dp"
             android:id="@+id/main_content"
@@ -34,7 +34,7 @@
                 android:layout_height="match_parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                <org.mozilla.focus.web.IWebView
+                <com.aosdp.darkfocus.web.IWebView
                     android:id="@+id/webview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -46,7 +46,7 @@
             <include
                 layout="@layout/browser_display_toolbar"/>
 
-            <org.mozilla.focus.widget.FloatingSessionsButton
+            <com.aosdp.darkfocus.widget.FloatingSessionsButton
                 android:id="@+id/tabs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -57,11 +57,11 @@
                 android:visibility="gone"
                 app:backgroundTint="@color/colorMultitasking"
                 app:rippleColor="@color/colorMultitaskingPressed"
-                app:layout_behavior="org.mozilla.focus.widget.FloatingActionButtonBehavior"
+                app:layout_behavior="com.aosdp.darkfocus.widget.FloatingActionButtonBehavior"
                 app:fabSize="normal"
                 app:layout_dodgeInsetEdges="bottom"/>
 
-            <org.mozilla.focus.widget.FloatingEraseButton
+            <com.aosdp.darkfocus.widget.FloatingEraseButton
                 android:id="@+id/erase"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                 app:rippleColor="@color/colorErasePressed"
                 android:visibility="gone"
                 app:fabSize="normal"
-                app:layout_behavior="org.mozilla.focus.widget.FloatingActionButtonBehavior"
+                app:layout_behavior="com.aosdp.darkfocus.widget.FloatingActionButtonBehavior"
                 android:contentDescription="@string/content_description_erase"
                 app:layout_dodgeInsetEdges="bottom"/>
 
@@ -87,7 +87,7 @@
                 android:visibility="gone"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_insetEdge="bottom"/>
-        </org.mozilla.focus.widget.ResizableKeyboardCoordinatorLayout>
+        </com.aosdp.darkfocus.widget.ResizableKeyboardCoordinatorLayout>
     </LinearLayout>
 
     <FrameLayout

@@ -10,7 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <org.mozilla.focus.widget.ResizableKeyboardLinearLayout
+    <com.aosdp.darkfocus.widget.ResizableKeyboardLinearLayout
         android:id="@+id/keyboardLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -38,7 +38,7 @@
             android:textSize="14sp"
             android:focusable="false" />
 
-    </org.mozilla.focus.widget.ResizableKeyboardLinearLayout>
+    </com.aosdp.darkfocus.widget.ResizableKeyboardLinearLayout>
 
     <FrameLayout android:id="@+id/urlInputLayout"
         android:layout_width="match_parent"
@@ -109,7 +109,7 @@
                     android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/content_description_clear_input" />
 
-                <org.mozilla.focus.widget.IndicatorMenuButton
+                <com.aosdp.darkfocus.widget.IndicatorMenuButton
                     android:id="@+id/menuView"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
