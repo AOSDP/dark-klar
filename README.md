@@ -24,7 +24,7 @@ Before you attempt to make a contribution please read the [Community Participati
 * IRC: [#focus (irc.mozilla.org)](https://wiki.mozilla.org/IRC) | [view logs](https://mozilla.logbot.info/focus/)
 (**We're available Monday-Friday, GMT and PST working hours**).
 
-* Opt-in to our Mailing List [firefox-focus-public@](https://mail.mozilla.org/listinfo/firefox-focus-public) to keep up to date.
+* Opt-in to Firefox's Mailing List [firefox-focus-public@](https://mail.mozilla.org/listinfo/firefox-focus-public) to keep up to date.
 
 * [View the Wiki](https://github.com/mozilla-mobile/focus-android/wiki).
 
@@ -36,7 +36,7 @@ Before you attempt to make a contribution please read the [Community Participati
 1. Clone or Download the repository:
 
   ```shell
-  git clone https://github.com/mozilla-mobile/focus-android
+  git clone https://github.com/Android-Open-Source-Dark-Project/focus-android
   ```
 
 2. Import the project into Android Studio **or** build on the command line:
