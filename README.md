@@ -10,26 +10,6 @@ _Browse like no one’s watching. The new Dark Focus automatically blocks a wide
 
 Dark Focus provides automatic ad blocking and tracking protection on an easy-to-use private browser.
 
-## Getting Involved in Dark Focus
-
-
-We encourage you to participate in this open source project. We love Pull Requests, Bug Reports, ideas, (security) code reviews or any other kind of positive contribution. 
-
-Before you attempt to make a contribution please read the [Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/).
-
-* [Guide to Contributing](https://github.com/mozilla-mobile/shared-docs/blob/master/android/CONTRIBUTING.md) (**New contributors start here!**)
-
-* [View current Issues](https://github.com/mozilla-mobile/focus-android/issues) or [View current Pull Requests](https://github.com/mozilla-mobile/focus-android/pulls).
-
-* IRC: [#focus (irc.mozilla.org)](https://wiki.mozilla.org/IRC) | [view logs](https://mozilla.logbot.info/focus/)
-(**We're available Monday-Friday, GMT and PST working hours**).
-
-* Opt-in to Firefox's Mailing List [firefox-focus-public@](https://mail.mozilla.org/listinfo/firefox-focus-public) to keep up to date.
-
-* [View the Wiki](https://github.com/mozilla-mobile/focus-android/wiki).
-
-**Beginners!** - Watch out for [Issues with the "Good First Issue" label](https://github.com/mozilla-mobile/focus-android/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22). These are easy bugs that have been left for first timers to have a go, get involved and make a positive contribution to the project!
-
 ## Build Instructions
 
 
