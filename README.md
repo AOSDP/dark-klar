@@ -1,4 +1,4 @@
-# DArk Focus for Android
+# Dark Focus for Android
 
 [![Build Status](https://travis-ci.org/mozilla-mobile/focus-android.svg?branch=master)](https://travis-ci.org/mozilla-mobile/focus-android)
 [![Task Status](https://github.taskcluster.net/v1/repository/mozilla-mobile/focus-android/master/badge.svg)](https://github.taskcluster.net/v1/repository/mozilla-mobile/focus-android/master/latest)
@@ -10,13 +10,7 @@ _Browse like no one’s watching. The new Dark Focus automatically blocks a wide
 
 Dark Focus provides automatic ad blocking and tracking protection on an easy-to-use private browser.
 
-<a href="https://play.google.com/store/apps/details?id=org.mozilla.focus" target="_blank"><img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="90"/></a>
-
-* [Google Play: Firefox Focus (Global)](https://play.google.com/store/apps/details?id=org.mozilla.focus)
-* [Google Play: Firefox Klar (Germany, Austria & Switzerland)](https://play.google.com/store/apps/details?id=org.mozilla.klar)
-* [Download APKs](https://github.com/mozilla-mobile/focus-android/releases)
-
-## Getting Involved
+## Getting Involved in Dark Focus
 
 
 We encourage you to participate in this open source project. We love Pull Requests, Bug Reports, ideas, (security) code reviews or any other kind of positive contribution. 
