@@ -9,7 +9,7 @@
     android:layout_height="match_parent">
 
     <!-- The actual size of FirstrunCardView is determined in onMeasure() -->
-    <com.aosdp.darkfocus.firstrun.FirstrunCardView
+    <org.mozilla.focus.firstrun.FirstrunCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -92,6 +92,6 @@
 
         </LinearLayout>
 
-    </com.aosdp.darkfocus.firstrun.FirstrunCardView>
+    </org.mozilla.focus.firstrun.FirstrunCardView>
 
 </FrameLayout>

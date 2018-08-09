@@ -26,8 +26,8 @@
     <color name="colorMultitasking">@color/photonBlue50</color>
     <color name="colorMultitaskingPressed">@color/photonBlue60</color>
 
-    <color name="colorSheetSessionBackground">#fff9f9fa</color>
-    <color name="colorSheetSessionBackgroundPressed">#ffededf0</color>
+    <color name="colorSheetSessionBackground">#414141</color>
+    <color name="colorSheetSessionBackgroundPressed">#272727</color>
 
     <color name="colorDotHighlight">@color/photonBlue40</color>
 

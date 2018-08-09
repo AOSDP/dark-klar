@@ -4,7 +4,7 @@
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.aosdp.darkfocus.search.ManualAddSearchEnginePreference
+    <org.mozilla.focus.search.ManualAddSearchEnginePreference
         android:key="@string/pref_key_manual_add_search_engine"
         android:layout="@layout/preference_manual_add_search_engine"/>
 </PreferenceScreen>

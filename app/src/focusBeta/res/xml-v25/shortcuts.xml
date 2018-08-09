@@ -11,8 +11,8 @@
         android:shortcutLongLabel="@string/shortcut_erase_long_label">
         <intent
             android:action="erase"
-            android:targetPackage="com.aosdp.darkfocus.beta"
-            android:targetClass="com.aosdp.darkfocus.activity.EraseShortcutActivity">
+            android:targetPackage="org.mozilla.focus.beta"
+            android:targetClass="org.mozilla.focus.activity.EraseShortcutActivity">
                 <extra android:name="shortcut" android:value="true" />
         </intent>
     </shortcut>
