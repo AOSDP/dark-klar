@@ -24,6 +24,7 @@ import org.mozilla.focus.search.CustomSearchEngineStore
 import org.mozilla.focus.session.SessionManager
 import org.mozilla.focus.utils.AppConstants
 import org.mozilla.focus.utils.Settings
+import org.mozilla.focus.utils.activeExperimentIds
 import org.mozilla.telemetry.Telemetry
 import org.mozilla.telemetry.TelemetryHolder
 import org.mozilla.telemetry.config.TelemetryConfiguration
@@ -61,7 +62,7 @@ object TelemetryWrapper {
     private const val HISTOGRAM_MIN_INDEX = 0
 
     private val isEnabledByDefault: Boolean
-        get() = !AppConstants.isKlarBuild()
+        get() = !AppConstants.isKlarBuild
 
     private object Category {
         val ACTION = "action"
@@ -127,6 +128,8 @@ object TelemetryWrapper {
         val ADD_SEARCH_ENGINE_LEARN_MORE = "search_engine_learn_more"
         val CUSTOM_SEARCH_ENGINE = "custom_search_engine"
         val REMOVE_SEARCH_ENGINES = "remove_search_engines"
+        val GECKO_ENGINE = "gecko_engine"
+        val TIP = "tip"
     }
 
     private object Value {
@@ -158,6 +161,11 @@ object TelemetryWrapper {
         val SETTINGS = "settings"
         val QUICK_ADD = "quick_add"
         val FIND_IN_PAGE = "find_in_page"
+        val DEFAULT_BROWSER_TIP = "default_browser_tip"
+        val DISABLE_TRACKING_PROTECTION_TIP = "disable_tracking_protection_tip"
+        val ADD_TO_HOMESCREEN_TIP = "add_to_homescreen_tip"
+        val AUTOCOMPLETE_URL_TIP = "autocomplete_url_tip"
+        val OPEN_IN_NEW_TAB_TIP = "open_in_new_tab_tip"
     }
 
     private object Extra {
@@ -193,7 +201,7 @@ object TelemetryWrapper {
             val preferences = PreferenceManager.getDefaultSharedPreferences(context)
 
             return preferences.getBoolean(
-                    resources.getString(R.string.pref_key_telemetry), isEnabledByDefault) && !AppConstants.isDevBuild()
+                    resources.getString(R.string.pref_key_telemetry), isEnabledByDefault) && !AppConstants.isDevBuild
         } finally {
             StrictMode.setThreadPolicy(threadPolicy)
         }
@@ -225,7 +233,7 @@ object TelemetryWrapper {
 
             val configuration = TelemetryConfiguration(context)
                     .setServerEndpoint("https://incoming.telemetry.mozilla.org")
-                    .setAppName(if (AppConstants.isKlarBuild()) TELEMETRY_APP_NAME_KLAR else TELEMETRY_APP_NAME_FOCUS)
+                    .setAppName(if (AppConstants.isKlarBuild) TELEMETRY_APP_NAME_KLAR else TELEMETRY_APP_NAME_FOCUS)
                     .setUpdateChannel(BuildConfig.BUILD_TYPE)
                     .setPreferencesImportantForTelemetry(
                             resources.getString(R.string.pref_key_search_engine),
@@ -241,12 +249,13 @@ object TelemetryWrapper {
                             resources.getString(R.string.pref_key_default_browser),
                             resources.getString(R.string.pref_key_autocomplete_preinstalled),
                             resources.getString(R.string.pref_key_autocomplete_custom),
-                            resources.getString(R.string.pref_key_remote_debugging))
+                            resources.getString(R.string.pref_key_remote_debugging),
+                            resources.getString(R.string.pref_key_homescreen_tips))
                     .setSettingsProvider(TelemetrySettingsProvider(context))
                     .setCollectionEnabled(telemetryEnabled)
                     .setUploadEnabled(telemetryEnabled)
                     .setBuildId(TelemetryConfiguration(context).buildId +
-                    (if (AppConstants.isGeckoBuild(context))
+                    (if (AppConstants.isGeckoBuild)
                         ("-" + TELEMETRY_APP_ENGINE_GECKOVIEW) else ""))
 
             val serializer = JSONPingSerializer()
@@ -258,6 +267,8 @@ object TelemetryWrapper {
                     .addPingBuilder(TelemetryCorePingBuilder(configuration))
                     .addPingBuilder(TelemetryEventPingBuilder(configuration))
                     .setDefaultSearchProvider(createDefaultSearchProvider(context)))
+
+            TelemetryWrapper.recordActiveExperiments(context)
         } finally {
             StrictMode.setThreadPolicy(threadPolicy)
         }
@@ -807,6 +818,16 @@ object TelemetryWrapper {
     }
 
     @JvmStatic
+    fun changeToGeckoEngineEvent() {
+        TelemetryEvent.create(Category.ACTION, Method.CHANGE, Object.GECKO_ENGINE).queue()
+    }
+
+    @JvmStatic
+    fun recordActiveExperiments(context: Context) {
+        TelemetryHolder.get().recordActiveExperiments(context.activeExperimentIds)
+    }
+
+    @JvmStatic
     fun reportSiteIssueEvent() {
         TelemetryEvent.create(Category.ACTION, Method.CLICK, Object.MENU, Value.REPORT_ISSUE).queue()
     }
@@ -818,6 +839,42 @@ object TelemetryWrapper {
         // Make sure a minimum of 1 day has passed since we collected data
         val currentDateLong = dateFormat.format(Date()).toLong()
         return currentDateLong > dateOfLastPing
+    }
+
+    @JvmStatic
+    fun displayTipEvent(tipId: Int) {
+
+        val telemetryValue = when (tipId) {
+            R.string.tip_open_in_new_tab -> Value.OPEN_IN_NEW_TAB_TIP
+            R.string.tip_add_to_homescreen -> Value.ADD_TO_HOMESCREEN_TIP
+            R.string.tip_disable_tracking_protection -> Value.DISABLE_TRACKING_PROTECTION_TIP
+            R.string.tip_set_default_browser -> Value.DEFAULT_BROWSER_TIP
+            R.string.tip_autocomplete_url -> Value.AUTOCOMPLETE_URL_TIP
+            else -> {
+                // Unknown tip, fail silently rather than crashing.
+                return
+            }
+        }
+
+        TelemetryEvent.create(Category.ACTION, Method.SHOW, Object.TIP, telemetryValue).queue()
+    }
+
+    @JvmStatic
+    fun pressTipEvent(tipId: Int) {
+
+        val telemetryValue = when (tipId) {
+            R.string.tip_open_in_new_tab -> Value.OPEN_IN_NEW_TAB_TIP
+            R.string.tip_add_to_homescreen -> Value.ADD_TO_HOMESCREEN_TIP
+            R.string.tip_disable_tracking_protection -> Value.DISABLE_TRACKING_PROTECTION_TIP
+            R.string.tip_set_default_browser -> Value.DEFAULT_BROWSER_TIP
+            R.string.tip_autocomplete_url -> Value.AUTOCOMPLETE_URL_TIP
+            else -> {
+                // Unknown tip, fail silently rather than crashing.
+                return
+            }
+        }
+
+        TelemetryEvent.create(Category.ACTION, Method.CLICK, Object.TIP, telemetryValue).queue()
     }
 
     private fun isDeviceWithTelemetryDisabled(): Boolean {

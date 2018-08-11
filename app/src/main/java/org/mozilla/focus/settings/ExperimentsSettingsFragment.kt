@@ -6,14 +6,18 @@ package org.mozilla.focus.settings
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.v14.preference.SwitchPreference
+import android.support.v7.preference.SwitchPreferenceCompat
 import android.support.v7.preference.PreferenceFragmentCompat
 import com.jakewharton.processphoenix.ProcessPhoenix
 import org.mozilla.focus.R
+import org.mozilla.focus.utils.app
+import org.mozilla.focus.utils.experimentDescriptor
+import org.mozilla.focus.utils.isInExperiment
 import org.mozilla.focus.web.Config
 import org.mozilla.focus.web.ENGINE_PREF_STRING_KEY
 
-class ExperimentsSettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
+class ExperimentsSettingsFragment : PreferenceFragmentCompat(),
+        SharedPreferences.OnSharedPreferenceChangeListener {
     companion object {
         const val FRAGMENT_TAG = "ExperimentSettings"
     }
@@ -22,10 +26,9 @@ class ExperimentsSettingsFragment : PreferenceFragmentCompat(), SharedPreference
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.experiments_settings)
-        val enginePref: SwitchPreference? = preferenceManager
-                .findPreference(ENGINE_PREF_STRING_KEY) as SwitchPreference?
-        enginePref?.isChecked = preferenceManager.sharedPreferences
-                .getBoolean(ENGINE_PREF_STRING_KEY, Config.DEFAULT_NEW_RENDERER)
+        val enginePref: SwitchPreferenceCompat? = preferenceManager
+                .findPreference(ENGINE_PREF_STRING_KEY) as SwitchPreferenceCompat?
+        enginePref?.isChecked = activity!!.isInExperiment(experimentDescriptor)
     }
 
     override fun onResume() {
@@ -37,7 +40,7 @@ class ExperimentsSettingsFragment : PreferenceFragmentCompat(), SharedPreference
         super.onPause()
         preferenceScreen?.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(this)
         if (rendererPreferenceChanged) {
-            val launcherIntent = activity?.packageManager?.getLaunchIntentForPackage(activity?.packageName)
+            val launcherIntent = activity?.packageManager?.getLaunchIntentForPackage(activity!!.packageName)
             ProcessPhoenix.triggerRebirth(context, launcherIntent)
         }
     }
@@ -46,6 +49,9 @@ class ExperimentsSettingsFragment : PreferenceFragmentCompat(), SharedPreference
         when (key) {
             ENGINE_PREF_STRING_KEY -> {
                 rendererPreferenceChanged = true
+                activity!!.app.fretboard.setOverride(
+                        activity!!.app, experimentDescriptor,
+                        sharedPreferences!!.getBoolean(key, Config.DEFAULT_NEW_RENDERER))
             }
         }
     }

@@ -142,7 +142,7 @@ class BrowserMenuAdapter(
             )
         }
 
-        if (AppConstants.isGeckoBuild(context)) {
+        if (AppConstants.isGeckoBuild) {
             // "Report Site Issue" is available for builds using GeckoView only
             items.add(
                 MenuItem.Default(

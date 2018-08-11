@@ -54,7 +54,7 @@ public final class TestHelper {
 
     // wait for web area to be visible
     public static void waitForWebContent() {
-        if (!AppConstants.isGeckoBuild(InstrumentationRegistry.getContext())) {
+        if (!AppConstants.INSTANCE.isGeckoBuild()) {
             assertTrue(webView.waitForExists(waitingTime));
         } else {
             assertTrue(geckoView.waitForExists(waitingTime));
@@ -206,7 +206,7 @@ public final class TestHelper {
 
     /********* Settings Menu Item Locators ***********/
     public static UiObject settingsList = mDevice.findObject(new UiSelector()
-            .resourceId("android:id/list"));
+            .resourceId(getAppName() + ":id/list"));
     public static UiObject settingsHeading = mDevice.findObject(new UiSelector()
             .resourceId(getAppName() + ":id/toolbar")
             .enabled(true));
