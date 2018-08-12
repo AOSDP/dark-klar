@@ -3,44 +3,44 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <resources>
-    <color name="colorPrimary">#ff272727</color>
+    <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#424242</color>
+    <color name="colorAccent">#000000</color>
 
     <color name="colorAccentSettings">#FF0266</color>
 
     <color name="colorGradientStart">#000000</color>
-    <color name="colorGradientCenter">#212121</color>
-    <color name="colorGradientEnd">#303030</color>
+    <color name="colorGradientCenter">#000000</color>
+    <color name="colorGradientEnd">#000000</color>
 
     <color name="colorProgressGradientStart">#FFFFFF</color>
     <color name="colorProgressGradientEnd">#333333</color>
 
-    <color name="coloInactiveGradientStart">#303030</color>
-    <color name="colorInactiveGradientCenter">#404040</color>
-    <color name="colorInactiveGradientEnd">#505050</color>
+    <color name="coloInactiveGradientStart">#000000</color>
+    <color name="colorInactiveGradientCenter">#000000</color>
+    <color name="colorInactiveGradientEnd">#000000</color>
 
-    <color name="colorErase">#424242</color>
-    <color name="colorErasePressed">#808080</color>
+    <color name="colorErase">#000000</color>
+    <color name="colorErasePressed">#000000</color>
 
     <color name="colorMultitasking">@color/photonBlue50</color>
     <color name="colorMultitaskingPressed">@color/photonBlue60</color>
 
-    <color name="colorSheetSessionBackground">#414141</color>
-    <color name="colorSheetSessionBackgroundPressed">#272727</color>
+    <color name="colorSheetSessionBackground">#000000</color>
+    <color name="colorSheetSessionBackgroundPressed">#000000</color>
 
     <color name="colorDotHighlight">@color/photonBlue40</color>
 
-    <color name="colorMenuBackground">#414141</color>
-    <color name="colorMenuBackgroundDark">#272727</color>
+    <color name="colorMenuBackground">#000000</color>
+    <color name="colorMenuBackgroundDark">#000000</color>
 
     <color name="colorCursor">#ccffffff</color>
 
-    <color name="colorOverlay">#cc000000</color>
+    <color name="colorOverlay">#000000</color>
 
     <color name="colorTextInactive">#80FFFFFF</color>
 
-    <color name="snackbarBackground">#FF414146</color>
+    <color name="snackbarBackground">#000000</color>
     <color name="snackbarTextColor">#ffffffff</color>
     <color name="snackbarActionText">@color/photonBlue50</color>
 
@@ -51,19 +51,19 @@
 
     <color name="dialogAccent">#FF0266</color>
 
-    <color name="colorSession">#272727</color>
+    <color name="colorSession">#000000</color>
     <color name="colorAction">@color/photonBlue50</color>
 
     <color name="add_to_homescreen_text">#B3FFFFFF</color>
-    <color name="add_to_homescreen_icon_background">#222222</color>
+    <color name="add_to_homescreen_icon_background">#000000</color>
 
     <color name="firefoxInstallHint">#FF0266</color>
 
-    <color name="preference_row_selected">#414146</color>
+    <color name="preference_row_selected">#000000</color>
     <color name="preference_row_disabled">#B3313131</color>
 
     <color name="scrollbarThumb">#b2b2b2b2</color>
 
     <color name="doorhanger_link">#FF2AA1FE</color>
-    <color name="placeholder_active_grey">#222222</color>
+    <color name="placeholder_active_grey">#000000</color>
 </resources>
