@@ -1,14 +1,17 @@
-# Dark Focus for Android
-
-[![Build Status](https://travis-ci.org/mozilla-mobile/focus-android.svg?branch=master)](https://travis-ci.org/mozilla-mobile/focus-android)
-[![Task Status](https://github.taskcluster.net/v1/repository/mozilla-mobile/focus-android/master/badge.svg)](https://github.taskcluster.net/v1/repository/mozilla-mobile/focus-android/master/latest)
-[![codecov](https://codecov.io/gh/mozilla-mobile/focus-android/branch/master/graph/badge.svg)](https://codecov.io/gh/mozilla-mobile/focus-android/branch/master)
-[![Sputnik](https://sputnik.ci/conf/badge)](https://sputnik.ci/app#/builds/mozilla-mobile/focus-android)
-
+# Dark Klar for Android
 
 _Browse like no one’s watching. The new Dark Focus automatically blocks a wide range of online trackers — from the moment you launch it to the second you leave it. Easily erase your history, passwords and cookies, so you won’t get followed by things like unwanted ads._ 
 
-Dark Focus provides automatic ad blocking and tracking protection on an easy-to-use private browser.
+Dark Klar provides automatic ad blocking and tracking protection on an easy-to-use private browser.
+
+**Forked from Focus, by Mozilla. This app contains an AMOLED theme by default.**
+
+<a href="https://f-droid.org/packages/org.mozilla.klar/" target="_blank">
+<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="90"/></a>
+
+<a href='https://play.google.com/store/apps/details?id=org.mozilla.focus'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height="90"/></a>
+
+[Original Source](https://github.com/mozilla-mobile/focus-android)
 
 ## Build Instructions
 
@@ -16,7 +19,7 @@ Dark Focus provides automatic ad blocking and tracking protection on an easy-to-
 1. Clone or Download the repository:
 
   ```shell
-  git clone https://github.com/Android-Open-Source-Dark-Project/focus-android
+  git clone https://github.com/Android-Open-Source-Dark-Project/dark-klar
   ```
 
 2. Import the project into Android Studio **or** build on the command line:
