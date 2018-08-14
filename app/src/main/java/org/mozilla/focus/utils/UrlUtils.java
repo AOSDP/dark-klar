@@ -77,7 +77,12 @@ public class UrlUtils {
         final SearchEngine searchEngine = Components.INSTANCE.getSearchEngineManager()
                 .getDefaultSearchEngine(context, defaultIdentifier);
 
-        return searchEngine.buildSearchUrl(searchTerm);
+        String searchUrl = searchEngine.buildSearchUrl(searchTerm);
+
+        if (searchEngine.getName().equals("DuckDuckGo"))
+            searchUrl += "&kae=d";
+
+        return searchUrl;
     }
 
     public static String stripUserInfo(@Nullable String url) {
