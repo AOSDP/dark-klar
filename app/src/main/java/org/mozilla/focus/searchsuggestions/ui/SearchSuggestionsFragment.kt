@@ -35,6 +35,7 @@ import org.mozilla.focus.searchsuggestions.SearchSuggestionsViewModel
 import org.mozilla.focus.searchsuggestions.State
 import org.mozilla.focus.session.SessionManager
 import org.mozilla.focus.session.Source
+import org.mozilla.focus.utils.SupportUtils
 
 class SearchSuggestionsFragment : Fragment() {
     lateinit var searchSuggestionsViewModel: SearchSuggestionsViewModel
@@ -90,7 +91,10 @@ class SearchSuggestionsFragment : Fragment() {
                 BitmapDrawable(resources, it)
             } ?: resources.getDrawable(R.drawable.ic_search, null)
 
-            searchView.setCompoundDrawablesWithIntrinsicBounds(icon, null, null, null)
+            val size = resources.getDimension(R.dimen.preference_icon_drawable_size).toInt()
+            icon.setBounds(0, 0, size, size)
+
+            searchView.setCompoundDrawables(icon, null, null, null)
         })
     }
 
@@ -143,7 +147,7 @@ class SearchSuggestionsFragment : Fragment() {
 
         val learnMoreSpan = object : ClickableSpan() {
             override fun onClick(textView: View) {
-                val url = "https://mozilla.org"
+                val url = SupportUtils.getSumoURLForTopic(context, SupportUtils.SumoTopic.SEARCH_SUGGESTIONS)
                 SessionManager.getInstance().createSession(Source.MENU, url)
             }
 

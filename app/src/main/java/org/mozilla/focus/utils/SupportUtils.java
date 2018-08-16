@@ -9,6 +9,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 
@@ -37,7 +38,8 @@ public class SupportUtils {
         AUTOCOMPLETE("autofill-domain-android"),
         TRACKERS("trackers"),
         USAGE_DATA("usage-data"),
-        WHATS_NEW("whats-new-focus-android-6");
+        WHATS_NEW("whats-new-focus-android-7"),
+        SEARCH_SUGGESTIONS("search-suggestions-focus-android");
 
         /** The final path segment for a SUMO URL - see {@see #getSumoURLForTopic} */
         @VisibleForTesting final String topicStr;
@@ -79,7 +81,12 @@ public class SupportUtils {
 
     public static void openDefaultBrowserSumoPage(Context context) {
         SessionManager.getInstance().createSession(Source.MENU, SupportUtils.DEFAULT_BROWSER_URL);
-        ((Activity) context).onBackPressed();
+
+        if (context instanceof Activity) {
+            ((Activity) context).finish();
+        } else {
+            openDefaultBrowserSumoPage(((ContextWrapper) context).getBaseContext());
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.N)

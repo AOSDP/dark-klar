@@ -31,9 +31,7 @@ import org.mozilla.focus.utils.IntentUtils
 import org.mozilla.focus.utils.Settings
 import org.mozilla.focus.utils.UrlUtils
 import org.mozilla.focus.webview.SystemWebView
-import org.mozilla.gecko.util.GeckoBundle
 import org.mozilla.gecko.util.ThreadUtils
-import org.mozilla.geckoview.GeckoResponse
 import org.mozilla.geckoview.GeckoResult
 import org.mozilla.geckoview.GeckoRuntime
 import org.mozilla.geckoview.GeckoRuntimeSettings
@@ -346,10 +344,19 @@ class GeckoWebViewProvider : IWebViewProvider {
             }
         }
 
+        @Suppress("ComplexMethod")
         private fun createProgressDelegate(): GeckoSession.ProgressDelegate {
             return object : GeckoSession.ProgressDelegate {
                 override fun onProgressChange(session: GeckoSession?, progress: Int) {
-                    callback?.onProgress(progress)
+                    if (progress == PROGRESS_100) {
+                        if (UrlUtils.isLocalizedContent(url)) {
+                            // When the url is a localized content, then the page is secure
+                            isSecure = true
+                        }
+                        callback?.onPageFinished(isSecure)
+                    } else {
+                        callback?.onProgress(progress)
+                    }
                 }
 
                 override fun onPageStart(session: GeckoSession, url: String) {
@@ -574,7 +581,7 @@ class GeckoWebViewProvider : IWebViewProvider {
         }
 
         private fun sendTelemetrySnapshots() {
-            val response = GeckoResponse<GeckoBundle> { value ->
+            geckoRuntime!!.telemetry.getSnapshots(true).then({ value ->
                 if (value != null) {
                     try {
                         val jsonData = value.toJSONObject()
@@ -583,9 +590,10 @@ class GeckoWebViewProvider : IWebViewProvider {
                         Log.e("getSnapshots failed", e.message)
                     }
                 }
-            }
-
-            geckoRuntime!!.telemetry.getSnapshots(true, response)
+                GeckoResult<Void>()
+            }, { _ ->
+                GeckoResult<Void>()
+            })
         }
 
         override fun onDetachedFromWindow() {
@@ -607,5 +615,6 @@ class GeckoWebViewProvider : IWebViewProvider {
         private const val USER_AGENT =
             "Mozilla/5.0 (Android 8.1.0; Mobile; rv:60.0) Gecko/60.0 Firefox/60.0"
         const val PREF_FIRST_GECKO_RUN: String = "first_gecko_run"
+        const val PROGRESS_100 = 100
     }
 }
