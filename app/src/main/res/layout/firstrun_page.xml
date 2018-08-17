@@ -17,7 +17,7 @@
         android:layout_marginBottom="4dp"
         android:elevation="4dp"
         cardview:cardCornerRadius="6dp"
-        cardview:cardBackgroundColor="#FFF9F9FA">
+        cardview:cardBackgroundColor="#424242">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,7 +54,7 @@
                         android:layout_marginEnd="24dp"
                         android:gravity="center"
                         android:lineSpacingMultiplier="1.25"
-                        android:textColor="#ff212121"
+                        android:textColor="@color/photonMagenta60"
                         android:textSize="18sp"
                         tools:text="@string/firstrun_tracking_title" />
 
@@ -67,7 +67,7 @@
                         android:layout_marginTop="16dp"
                         android:gravity="center"
                         android:lineSpacingMultiplier="1.25"
-                        android:textColor="#ff737373"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         tools:text="@string/firstrun_tracking_text" />
 
@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:background="?android:attr/selectableItemBackground"
-                android:textColor="#ff9400FF"
+                android:textColor="@color/photonMagenta70"
                 android:textSize="16sp"
                 tools:text="@string/firstrun_next_button" />
 

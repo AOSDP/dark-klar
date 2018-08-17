@@ -13,12 +13,12 @@ import android.text.TextUtils;
 import android.webkit.URLUtil;
 
 import org.mozilla.focus.Components;
+import org.mozilla.focus.browser.LocalizedContent;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 
 import mozilla.components.browser.search.SearchEngine;
-import org.mozilla.focus.browser.LocalizedContent;
 
 public class UrlUtils {
     public static String normalize(@NonNull String input) {
@@ -34,7 +34,7 @@ public class UrlUtils {
 
     /**
      * Is the given string a URL or should we perform a search?
-     *
+     * <p>
      * TODO: This is a super simple and probably stupid implementation.
      */
     public static boolean isUrl(String url) {
@@ -73,7 +73,13 @@ public class UrlUtils {
         final SearchEngine searchEngine = Components.INSTANCE.getSearchEngineManager()
                 .getDefaultSearchEngine(context, defaultIdentifier);
 
-        return searchEngine.buildSearchUrl(searchTerm);
+        String searchUrl = searchEngine.buildSearchUrl(searchTerm);
+
+        if (searchEngine.getName().equals("DuckDuckGo")) {
+            searchUrl += "&kae=d";
+        }
+
+        return searchUrl;
     }
 
     public static String stripUserInfo(@Nullable String url) {
@@ -189,6 +195,6 @@ public class UrlUtils {
 
     public static boolean isLocalizedContent(@Nullable String url) {
         return url != null &&
-            (url.equals(LocalizedContent.URL_ABOUT) || url.equals(LocalizedContent.URL_RIGHTS) || url.equals("about:blank"));
+                (url.equals(LocalizedContent.URL_ABOUT) || url.equals(LocalizedContent.URL_RIGHTS) || url.equals("about:blank"));
     }
 }
